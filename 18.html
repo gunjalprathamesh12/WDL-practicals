@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Admission</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        form { width:300px; margin:auto; padding:20px; background:#fff; border:1px solid #ccc; }
+        input { width:100%; margin:5px 0; padding:8px; }
+    </style>
+</head>
+<body style="background:#f0f0f0; font-family:Arial;">
+    <h2 style="text-align:center;">School Admission Form</h2>
+    <img src="school.jpg" width="200" style="display:block; margin:auto;">
+    <form action="admission.php" method="POST">
+        <input type="text" name="name" placeholder="Enter Name">
+        <input type="email" name="email" placeholder="Enter Email">
+        <button type="submit">Submit</button>
+    </form>
+    <p style="text-align:center;">Visit our <a href="https://schoolwebsite.com">School Website</a></p>
+</body>
+</html>
+
+
+<?php
+$name = $_POST['name'];
+$email = $_POST['email'];
+
+echo "<h2>Admission Details</h2>";
+echo "Name: " . strtoupper($name) . "<br>"; // string manipulation
+echo "Email: " . strtolower($email) . "<br>";
+?>

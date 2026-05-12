@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Student Registration</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #eef;
+      }
+      form {
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #ccc;
+      }
+      input,
+      select {
+        width: 100%;
+        margin: 5px 0;
+        padding: 8px;
+      }
+      button {
+        background: #2980b9;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        let name = document.forms["regForm"]["name"].value;
+        let email = document.forms["regForm"]["email"].value;
+        let mobile = document.forms["regForm"]["mobile"].value;
+        if (name == "" || email == "" || mobile == "") {
+          alert("All fields must be filled!");
+          return false;
+        }
+        let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.match(emailPattern)) {
+          alert("Invalid email format!");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      name="regForm"
+      action="submit.php"
+      method="POST"
+      onsubmit="return validateForm();"
+    >
+      <h2>Student Registration</h2>
+      <input type="text" name="name" placeholder="Enter Name" />
+      <input type="email" name="email" placeholder="Enter Email" />
+      <select name="gender">
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <input type="date" name="dob" />
+      <input type="text" name="mobile" placeholder="Enter Mobile Number" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+
+<?php echo "
+<h2>Submitted Student Details</h2>
+"; echo "Name: " . $_POST['name'] . "<br />"; echo "Email: " . $_POST['email'] .
+"<br />"; echo "Gender: " . $_POST['gender'] . "<br />"; echo "DOB: " .
+$_POST['dob'] . "<br />"; echo "Mobile: " . $_POST['mobile'] . "<br />"; ?>

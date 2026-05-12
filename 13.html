@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Registration</title>
+    <style>
+        body { font-family: Arial; background:#f9f9f9; }
+        form { width:300px; margin:auto; padding:20px; background:#fff; border:1px solid #ccc; }
+        input { width:100%; margin:5px 0; padding:8px; }
+        button { background:#d35400; color:white; padding:10px; border:none; cursor:pointer; }
+    </style>
+</head>
+<body>
+    <form id="quizForm">
+        <h2>Quiz Registration</h2>
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="email" id="email" placeholder="Enter Email">
+        <button type="button" onclick="showInfo()">Register</button>
+    </form>
+    <p id="result" style="text-align:center; font-weight:bold;"></p>
+
+    <script>
+        function showInfo() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            document.getElementById("result").innerHTML = "Participant: " + name + " (" + email + ")";
+        }
+    </script>
+</body>
+</html>

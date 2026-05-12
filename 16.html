@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Booking</title>
+    <style>
+        table { border-collapse: collapse; width:70%; margin:auto; }
+        td, th { border:1px solid #333; padding:10px; text-align:center; }
+        form { text-align:center; margin-top:20px; }
+        button { background:#e74c3c; color:white; padding:10px; border:none; cursor:pointer; }
+    </style>
+    <script>
+        function confirmBooking() {
+            return confirm("Do you want to confirm your booking?");
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center;">Movie Shows</h2>
+    <table>
+        <tr><th>Movie</th><th>Details</th></tr>
+        <tr>
+            <td>Avengers</td>
+            <td>
+                <table>
+                    <tr><td>Time</td><td>7:00 PM</td></tr>
+                    <tr><td>Price</td><td>200 INR</td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <form action="booking.php" method="POST" onsubmit="return confirmBooking()">
+        <p>Enter Name:</p>
+        <input type="text" name="name">
+        <p>Select Movie:</p>
+        <select name="movie">
+            <option>Avengers</option>
+        </select>
+        <button type="submit">Book Ticket</button>
+    </form>
+</body>
+</html>
+
+
+<?php
+echo "<h2>Booking Details</h2>";
+echo "Name: " . $_POST['name'] . "<br>";
+echo "Movie: " . $_POST['movie'] . "<br>";
+?>

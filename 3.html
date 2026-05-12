@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>College Information</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+      }
+      td,
+      th {
+        border: 1px solid #333;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My College</h1>
+    <img src="college.jpg" alt="College Image" width="300" />
+    <table>
+      <tr>
+        <th>Department</th>
+        <th>Details</th>
+      </tr>
+      <tr>
+        <td id="deptName">Computer Engineering</td>
+        <td>
+          <table>
+            <tr>
+              <td>Faculty</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Students</td>
+              <td>500</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <p>
+      Visit our
+      <a href="https://collegewebsite.com" target="_blank">Official Website</a>
+    </p>
+
+    <script>
+      document.getElementById("deptName").innerHTML = "Information Technology";
+    </script>
+  </body>
+</html>
+
+body { font-family: Arial; background:#f9f9f9; text-align:center; } h1 {
+color:#2c3e50; }

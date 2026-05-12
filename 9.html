@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Advertisement</title>
+    <style>
+        table { border-collapse: collapse; width:70%; margin:auto; }
+        td, th { border:1px solid #333; padding:10px; text-align:center; }
+        img { width:100px; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Product Advertisement</h2>
+    <table>
+        <tr><th>Product</th><th>Image</th><th>Link</th></tr>
+        <tr><td id="prodName">Smartphone</td><td><img src="phone.jpg"></td><td><a href="https://flipkart.com">Buy Now</a></td></tr>
+    </table>
+    <button onclick="changeProduct()">Show Laptop</button>
+
+    <script>
+        function changeProduct() {
+            document.getElementById("prodName").innerHTML = "Laptop";
+        }
+    </script>
+</body>
+</html>

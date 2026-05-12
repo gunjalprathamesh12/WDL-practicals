@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+    <style>
+        body { font-family: Arial; background:#eef; }
+        form { width:300px; margin:auto; padding:20px; background:#fff; border:1px solid #ccc; }
+        input { width:100%; margin:5px 0; padding:8px; }
+        button { background:#c0392b; color:white; padding:10px; border:none; cursor:pointer; }
+    </style>
+    <script>
+        function validateEvent() {
+            let name = document.forms["eventForm"]["name"].value;
+            if(name=="") {
+                alert("Name is required!");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="eventForm" action="event.php" method="POST" onsubmit="return validateEvent()">
+        <h2>Event Registration</h2>
+        <input type="text" name="name" placeholder="Enter Name">
+        <input type="email" name="email" placeholder="Enter Email">
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

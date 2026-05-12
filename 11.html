@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Booking</title>
+    <style>
+        table { border-collapse: collapse; width:70%; margin:auto; }
+        td, th { border:1px solid #333; padding:10px; text-align:center; }
+        form { text-align:center; margin-top:20px; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Travel Packages</h2>
+    <table>
+        <tr><th>Package</th><th>Details</th></tr>
+        <tr>
+            <td id="packageName">Goa Trip</td>
+            <td>
+                <table>
+                    <tr><td>Duration</td><td>5 Days</td></tr>
+                    <tr><td>Cost</td><td>15000 INR</td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <form>
+        <p>Enter Customer Name:</p>
+        <input type="text" id="custName">
+        <button type="button" onclick="showBooking()">Book</button>
+    </form>
+    <p id="result" style="text-align:center; font-weight:bold;"></p>
+
+    <script>
+        function showBooking() {
+            let name = document.getElementById("custName").value;
+            let package = document.getElementById("packageName").innerHTML;
+            document.getElementById("result").innerHTML = name + " booked " + package;
+        }
+    </script>
+</body>
+</html>

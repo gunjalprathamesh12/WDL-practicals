@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Appointment</title>
+    <style>
+        body { font-family: Arial; background:#f0f0f0; }
+        form { width:350px; margin:auto; padding:20px; background:#fff; border:1px solid #ccc; }
+        input { width:100%; margin:5px 0; padding:8px; }
+        button { background:#8e44ad; color:white; padding:10px; border:none; cursor:pointer; }
+    </style>
+    <script>
+        function validateForm() {
+            let name = document.forms["apptForm"]["name"].value;
+            let mobile = document.forms["apptForm"]["mobile"].value;
+            if(name=="" || mobile=="") {
+                alert("Name and Mobile are required!");
+                return false;
+            }
+            if(isNaN(mobile) || mobile.length!=10) {
+                alert("Enter valid 10-digit mobile number!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="apptForm" action="appointment.php" method="POST" onsubmit="return validateForm()">
+        <h2>Patient Appointment Form</h2>
+        <input type="text" name="name" placeholder="Enter Name">
+        <input type="date" name="date">
+        <input type="text" name="mobile" placeholder="Enter Mobile Number">
+        <button type="submit">Book Appointment</button>
+    </form>
+</body>
+</html>
+
+<?php
+echo "<h2>Appointment Details</h2>";
+echo "Name: " . $_POST['name'] . "<br>";
+echo "Date: " . $_POST['date'] . "<br>";
+echo "Mobile: " . $_POST['mobile'] . "<br>";
+?>

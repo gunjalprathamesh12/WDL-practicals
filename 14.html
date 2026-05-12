@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+    <style>
+        table { border-collapse: collapse; width:70%; margin:auto; }
+        td, th { border:1px solid #333; padding:10px; text-align:center; }
+        img { width:100px; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Restaurant Menu</h2>
+    <table>
+        <tr><th>Item</th><th>Price</th><th>Image</th></tr>
+        <?php
+        $menu = array(
+            "Pizza" => 250,
+            "Burger" => 150,
+            "Pasta" => 200
+        );
+        foreach($menu as $item=>$price) {
+            echo "<tr><td>$item</td><td>Rs. $price</td><td><img src='$item.jpg'></td></tr>";
+        }
+        ?>
+    </table>
+    <p style="text-align:center;">Order online at <a href="https://zomato.com">Zomato</a></p>
+</body>
+</html>

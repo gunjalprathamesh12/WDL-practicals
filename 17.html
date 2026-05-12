@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Registration</title>
+    <style>
+        body { font-family: Arial; background:#f9f9f9; }
+        form { max-width:400px; margin:auto; padding:20px; background:#fff; border:1px solid #ccc; }
+        input { width:100%; margin:5px 0; padding:8px; }
+        button { background:#27ae60; color:white; padding:10px; border:none; cursor:pointer; }
+        @media (max-width:600px) {
+            form { width:90%; }
+        }
+    </style>
+    <script>
+        function validateShop() {
+            let name = document.forms["shopForm"]["name"].value;
+            let email = document.forms["shopForm"]["email"].value;
+            if(name=="" || email=="") {
+                alert("Name and Email required!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="shopForm" action="shop.php" method="POST" onsubmit="return validateShop()">
+        <h2>Shopping Site Registration</h2>
+        <input type="text" name="name" placeholder="Enter Name">
+        <input type="email" name="email" placeholder="Enter Email">
+        <input type="text" name="address" placeholder="Enter Address">
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+
+<?php
+echo "<h2>Shopping Registration Details</h2>";
+echo "Name: " . $_POST['name'] . "<br>";
+echo "Email: " . $_POST['email'] . "<br>";
+echo "Address: " . $_POST['address'] . "<br>";
+?>

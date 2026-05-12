@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Personal Profile</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f4f6f9;
+        margin: 0;
+      }
+      header {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      section {
+        padding: 20px;
+        text-align: center;
+      }
+      img {
+        width: 150px;
+        border-radius: 50%;
+      }
+      a {
+        color: #2980b9;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to My Profile Page</h1>
+      <p>
+        <?php date_default_timezone_set("Asia/Kolkata"); echo "Hello! Today is "
+        . date("l, d M Y") . " and the time is " . date("h:i A"); ?>
+      </p>
+    </header>
+    <section>
+      <img src="profile.jpg" alt="My Photo" />
+      <h2>vishal</h2>
+      <p><b>Computer Engineering Student</b></p>
+      <p>I love coding, gaming, and mobile tech.</p>
+      <p>Visit my favorite site:</p>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Employee Registration</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f0f0f0;
+      }
+      form {
+        width: 300px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #ccc;
+      }
+      input {
+        width: 100%;
+        margin: 5px 0;
+        padding: 8px;
+      }
+      button {
+        background: #27ae60;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        let name = document.forms["empForm"]["name"].value;
+        let email = document.forms["empForm"]["email"].value;
+        if (name == "" || email == "") {
+          alert("Name and Email are required!");
+          return false;
+        }
+        let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.match(emailPattern)) {
+          alert("Invalid email format!");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      name="empForm"
+      action="employee.php"
+      method="POST"
+      onsubmit="return validateForm();"
+    >
+      <h2>Employee Registration</h2>
+      <input type="text" name="name" placeholder="Enter Name" />
+      <input type="email" name="email" placeholder="Enter Email" />
+      <input type="text" name="designation" placeholder="Enter Designation" />
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>
+
+
+<?php echo "
+<h2>Employee Details</h2>
+"; echo "Name: " . $_POST['name'] . "<br />"; echo "Email: " . $_POST['email'] .
+"<br />"; echo "Designation: " . $_POST['designation'] . "<br />"; ?>

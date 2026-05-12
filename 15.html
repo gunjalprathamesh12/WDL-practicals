@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gym Membership</title>
+    <style>
+        body { font-family: Arial; background:#eef; }
+        form { width:300px; margin:auto; padding:20px; background:#fff; border:1px solid #ccc; }
+        input { width:100%; margin:5px 0; padding:8px; }
+        button { background:#2c3e50; color:white; padding:10px; border:none; cursor:pointer; }
+    </style>
+    <script>
+        function validateGym() {
+            let email = document.forms["gymForm"]["email"].value;
+            let mobile = document.forms["gymForm"]["mobile"].value;
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if(!email.match(emailPattern)) {
+                alert("Invalid email!");
+                return false;
+            }
+            if(isNaN(mobile) || mobile.length!=10) {
+                alert("Enter valid 10-digit mobile number!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="gymForm" action="membership.php" method="POST" onsubmit="return validateGym()">
+        <h2>Gym Membership Registration</h2>
+        <input type="text" name="name" placeholder="Enter Name">
+        <input type="email" name="email" placeholder="Enter Email">
+        <input type="text" name="mobile" placeholder="Enter Mobile Number">
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+
+
+<?php
+$plans = array(
+    "Basic" => "Rs. 1000/month",
+    "Premium" => "Rs. 2000/month",
+    "VIP" => "Rs. 3000/month"
+);
+
+echo "<h2>Membership Details</h2>";
+echo "Name: " . $_POST['name'] . "<br>";
+echo "Email: " . $_POST['email'] . "<br>";
+echo "Mobile: " . $_POST['mobile'] . "<br>";
+
+echo "<h3>Available Plans:</h3>";
+foreach($plans as $plan=>$price) {
+    echo "$plan : $price <br>";
+}
+?>

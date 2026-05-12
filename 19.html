@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tourism Webpage</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 70%;
+        margin: auto;
+      }
+      td,
+      th {
+        border: 1px solid #333;
+        padding: 10px;
+        text-align: center;
+      }
+      img {
+        width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="text-align: center">Tourist Places</h2>
+    <table>
+      <tr>
+        <th>Place</th>
+        <th>Image</th>
+        <th>Link</th>
+      </tr>
+      <tr>
+        <td id="placeName">Goa Beach</td>
+        <td><img src="goa.jpg" /></td>
+        <td><a href="https://goa-tourism.com">Visit</a></td>
+      </tr>
+    </table>
+    <button onclick="updatePlace()">Show Taj Mahal</button>
+
+    <script>
+      function updatePlace() {
+        document.getElementById("placeName").innerHTML = "Taj Mahal";
+      }
+    </script>
+  </body>
+</html>

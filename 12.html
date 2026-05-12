@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banking Customer Form</title>
+    <style>
+        body { font-family: Arial; background:#f0f0f0; }
+        form { width:350px; margin:auto; padding:20px; background:#fff; border:1px solid #ccc; }
+        input { width:100%; margin:5px 0; padding:8px; }
+        button { background:#16a085; color:white; padding:10px; border:none; cursor:pointer; }
+    </style>
+    <script>
+        function validateForm() {
+            let name = document.forms["bankForm"]["name"].value;
+            let amount = document.forms["bankForm"]["amount"].value;
+            let years = document.forms["bankForm"]["years"].value;
+            if(name=="" || amount=="" || years=="") {
+                alert("All fields are required!");
+                return false;
+            }
+            if(isNaN(amount) || isNaN(years)) {
+                alert("Enter valid numbers!");
+                return false;
+            }
+            let interest = amount * 0.05 * years; // 5% simple interest
+            alert("Calculated Interest: Rs. " + interest);
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="bankForm" action="bank.php" method="POST" onsubmit="return validateForm()">
+        <h2>Banking Customer Information</h2>
+        <input type="text" name="name" placeholder="Enter Name">
+        <input type="text" name="amount" placeholder="Enter Amount">
+        <input type="text" name="years" placeholder="Enter Years">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+
+<?php
+echo "<h2>Banking Details</h2>";
+echo "Name: " . $_POST['name'] . "<br>";
+echo "Amount: " . $_POST['amount'] . "<br>";
+echo "Years: " . $_POST['years'] . "<br>";
+?>

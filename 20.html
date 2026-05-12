@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hostel Registration</title>
+    <style>
+      body {
+        font-family: Arial;
+        background: #f0f0f0;
+      }
+      form {
+        width: 350px;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #ccc;
+      }
+      input {
+        width: 100%;
+        margin: 5px 0;
+        padding: 8px;
+      }
+      button {
+        background: #34495e;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function validateHostel() {
+        let name = document.forms["hostelForm"]["name"].value;
+        let room = document.forms["hostelForm"]["room"].value;
+        if (name == "" || room == "") {
+          alert("Name and Room preference required!");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      name="hostelForm"
+      action="hostel.php"
+      method="POST"
+      onsubmit="return validateHostel();"
+    >
+      <h2>Hostel Registration</h2>
+      <input type="text" name="name" placeholder="Enter Name" />
+      <input
+        type="text"
+        name="room"
+        placeholder="Enter Room Type (Single/Double)"
+      />
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>
+
+<?php echo "
+<h2>Hostel Allocation Details</h2>
+"; echo "Name: " . $_POST['name'] . "<br />"; echo "Room Type: " .
+$_POST['room'] . "<br />"; echo "Room Allocated Successfully!"; ?>

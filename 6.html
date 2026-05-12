@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Enrollment</title>
+    <style>
+        table { border-collapse: collapse; width:70%; margin:auto; }
+        td, th { border:1px solid #333; padding:10px; text-align:center; }
+        form { text-align:center; margin-top:20px; }
+        button { background:#3498db; color:white; padding:10px; border:none; cursor:pointer; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Available Courses</h2>
+    <table>
+        <tr><th>Course</th><th>Details</th></tr>
+        <tr>
+            <td>Web Development</td>
+            <td>
+                <table>
+                    <tr><td>Duration</td><td>3 Months</td></tr>
+                    <tr><td>Fee</td><td>5000 INR</td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Database Management</td>
+            <td>
+                <table>
+                    <tr><td>Duration</td><td>2 Months</td></tr>
+                    <tr><td>Fee</td><td>4000 INR</td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <form action="enroll.php" method="POST">
+        <p>Select Course:</p>
+        <select name="course">
+            <option>Web Development</option>
+            <option>Database Management</option>
+        </select>
+        <br><br>
+        <button type="submit">Enroll</button>
+    </form>
+</body>
+</html>
+
+<?php
+echo "<h2>Enrollment Confirmation</h2>";
+echo "You have successfully enrolled in: " . $_POST['course'];
+?>

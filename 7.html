@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Webpage</title>
+    <style>
+        table { border-collapse: collapse; width:70%; margin:auto; }
+        td, th { border:1px solid #333; padding:10px; text-align:center; }
+        img { width:80px; }
+        form { text-align:center; margin-top:20px; }
+    </style>
+    <script>
+        function calculateFine() {
+            let days = parseInt(document.getElementById("days").value);
+            let fine = 0;
+            switch(true) {
+                case (days <= 5): fine = days * 2; break;
+                case (days <= 10): fine = days * 5; break;
+                default: fine = days * 10; break;
+            }
+            document.getElementById("result").innerHTML = "Fine: Rs. " + fine;
+        }
+    </script>
+</head>
+<body>
+    <h2 style="text-align:center;">Library Books</h2>
+    <table>
+        <tr><th>Book</th><th>Author</th><th>Image</th></tr>
+        <tr><td>HTML Basics</td><td>John Doe</td><td><img src="htmlbook.jpg"></td></tr>
+        <tr><td>JavaScript Guide</td><td>Jane Smith</td><td><img src="jsbook.jpg"></td></tr>
+    </table>
+    <form>
+        <p>Enter number of late days:</p>
+        <input type="number" id="days">
+        <button type="button" onclick="calculateFine()">Calculate Fine</button>
+    </form>
+    <p id="result" style="text-align:center; font-weight:bold;"></p>
+</body>
+</html>
